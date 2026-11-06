@@ -1,5 +1,4 @@
 from turtle import Turtle
-from screen import screen
 import random
 
 SPEED_INCREMENT = 5

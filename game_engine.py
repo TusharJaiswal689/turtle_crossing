@@ -5,11 +5,14 @@ from screen import screen
 
 class GameEngine:
     def __init__(self):
+        screen.tracer(0)
         self.turtle = TurtlePlayer()
         self.car = CarManager()
         self.ui = UIManager()
         self.current_level = 1
         self.is_game_on = True
+        screen.update()
+        screen.tracer(1)
 
         self.setup_game()
 
@@ -54,6 +57,7 @@ class GameEngine:
         screen.ontimer(self.game_loop, 100)
 
     def restart_game(self):
+        self.ui.game_over_writer.clear()
         screen.tracer(0)
         screen.onkey(None, "r")
         self.ui.game_over_writer.clear()

@@ -1,12 +1,10 @@
 from turtle import Turtle
-from screen import screen
 
 VISUAL_LOS = 280
 
 class UIManager():
     def __init__(self):
         self.writer_turtles = []
-        screen.tracer(0)
         self.menu_writer = Turtle()
         self.writer_turtles.append(self.menu_writer)
         self.game_over_writer = Turtle()
@@ -17,13 +15,9 @@ class UIManager():
             turtle.hideturtle()
             turtle.penup()
             turtle.color("black")
-        screen.update()
-        screen.tracer(1)
         self.draw_boundary()
 
     def draw_boundary(self):
-        screen.tracer(0)
-
         writer = Turtle()
         writer.hideturtle()
         writer.penup()
@@ -31,9 +25,6 @@ class UIManager():
         writer.goto(-VISUAL_LOS, -VISUAL_LOS)
         writer.setheading(90)
         writer.pendown()
-
-        screen.update()
-        screen.tracer(1)
 
         for _ in range(4):
             writer.forward(VISUAL_LOS * 2)
